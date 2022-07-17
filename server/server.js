@@ -14,18 +14,20 @@ const profileRoutes = require("./routes/profile");
 const app = express();
 app.use(express.json());
 app.use(
-    cookieSession({
-        name: "session",
-        keys: [process.env.COOKIE_KEY],
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-    })
+  cookieSession({
+    name: "session",
+    keys: [process.env.COOKIE_KEY],
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors({
-    origin: "http://localhost:3000",
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://resumehut.netlify.app"],
     credentials: true,
-}));
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 const mongo_user = process.env.MONGO_USER;
