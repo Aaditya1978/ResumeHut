@@ -74,7 +74,7 @@ export default function Home({ user }) {
             </Typography>
             <br />
             <Typography variant="h6" component="div" className="sub-text">
-              Select Resume template from the list below to create your resume.{" "}
+              Select Resume template from the below list to create your resume.{" "}
               <br /> OR <br />
               Go to <Link to="/profile">Profile</Link> to view your created
               resumes.

@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://resumehut.netlify.app"],
+    origin: "https://resumehut.netlify.app",
     credentials: true,
   })
 );
