@@ -1,0 +1,135 @@
+$background-color: #171717;
+$primary-color: #ee2737;
+$font-color: #fff;
+$font-color-secondary: #ee2737;
+$font-family: 'Open Sans', sans-serif;
+
+body {
+    background-color: $background-color;
+    color: $font-color;
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+}
+
+.profile {
+
+    .navbar {
+        background-color: $background-color;
+
+        .logo-text {
+            color: $font-color-secondary;
+            font-weight: bold;
+            margin-left: 1rem;
+            font-family: $font-family;
+        }
+
+        .nav-b {
+            background-color: $background-color;
+            color: $font-color;
+            font-family: $font-family;
+            font-weight: bold;
+            border: 2px solid $primary-color;
+            width: 180px;
+            margin-left: 1rem;
+            border-radius: 10px;
+
+            .nav-i{
+                font-size: 20px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+        }
+
+        .nav-b:hover {
+            background-color: $primary-color;
+            color: $font-color;
+        }
+    }
+
+    .main-s{
+        .main-text{
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-left: 1rem;
+            color: $font-color;
+            font-family: $font-family;
+        }
+    }
+
+    .resume-s{
+        .resume-text{
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-left: 1rem;
+            color: $font-color;
+            font-family: $font-family;
+        }
+
+        .resume-c{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+
+            img{
+                padding: 20px;
+                border-radius: 10px;
+                background-color: $primary-color;
+                cursor: pointer;
+            }
+
+            .text-r{
+                font-size: 1.3rem;
+                font-weight: bold;
+                margin-left: 1rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                color: $font-color;
+                font-family: $font-family;
+            }
+
+            .btn-r{
+                background-color: $primary-color;
+                color: $font-color;
+                font-family: $font-family;
+                font-weight: bold;
+                border: 2px solid $primary-color;
+                width: 190px;
+                margin-left: 1rem;
+                border-radius: 8px;
+
+                a{
+                    color: $font-color;
+                    text-decoration: none;
+                }
+            }
+
+            .generate-b2{
+                background-color: #e04f5b;
+                color: $font-color;
+                font-family: $font-family;
+                font-weight: bold;
+                border: 2px solid $primary-color;
+                width: 190px;
+                margin-left: 1rem;
+                border-radius: 8px;
+            }
+
+        }
+
+        .css-118zhtq-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab{
+            background-color: $primary-color;
+        }
+
+        .css-13srr63-MuiButtonBase-root-MuiFab-root-MuiSpeedDialAction-fab{
+            background-color: $primary-color;
+        }
+
+        .css-1e2cad8-MuiButtonBase-root-MuiFab-root-MuiSpeedDialAction-fab{
+            background-color: $primary-color;
+        }
+
+    }
+}

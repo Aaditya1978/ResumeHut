@@ -1,0 +1,224 @@
+$background-color: #171717;
+$primary-color: #ee2737;
+$font-color: #fff;
+$font-color-secondary: #ee2737;
+$font-family: 'Open Sans', sans-serif;
+
+body {
+    background-color: $background-color;
+    color: $font-color;
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+
+    .navbar {
+        background-color: $background-color;
+
+        .logo-text {
+            color: $font-color-secondary;
+            font-weight: bold;
+            margin-left: 1rem;
+            font-family: $font-family;
+        }
+
+        .nav-b {
+            background-color: $background-color;
+            color: $font-color;
+            font-family: $font-family;
+            font-weight: bold;
+            border: 2px solid $primary-color;
+            width: 180px;
+            margin-left: 1rem;
+        }
+
+        .nav-b:hover {
+            background-color: $primary-color;
+            color: $font-color;
+        }
+
+        .selected {
+            background-color: $primary-color;
+            color: $font-color;
+        }
+    }
+
+    .header {
+        color: $font-color;
+        padding: 1rem;
+
+        .header-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-left: 1rem;
+            color: $font-color-secondary;
+            font-family: $font-family;
+        }
+
+        .header-subtext {
+            font-size: 1.05rem;
+            font-weight: normal;
+            margin-left: 1rem;
+            color: $font-color;
+            font-family: $font-family;
+        }
+
+        .form-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: $font-color-secondary;
+            font-family: $font-family;
+        }
+
+        .form-c {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        .google-b {
+            background-color: $primary-color;
+            color: $font-color;
+            font-family: $font-family;
+            font-weight: bold;
+            border: 2px solid $primary-color;
+            width: 180px;
+            height: 50px;
+        }
+
+        .github-b {
+            background-color: $primary-color;
+            color: $font-color;
+            font-family: $font-family;
+            font-weight: bold;
+            border: 2px solid $primary-color;
+            width: 180px;
+            height: 50px;
+        }
+
+        .line {
+            width: 100%; 
+            text-align: center; 
+            border-bottom: 2px solid $font-color-secondary; 
+            line-height: 0.2em;
+            margin: 30px 0 10px; 
+        }
+
+        .line span{
+            background: $background-color; 
+            padding:0 10px; 
+        }
+
+        .signup-form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .input-text {
+                font-size: 1.1rem;
+                color: $font-color;
+                background-color: rgb(19, 19, 19);
+                width: 400px;
+                margin-bottom: 20px;
+                font-family: $font-family;
+            }
+    
+            label{
+                color: #fff;
+            }
+    
+            & label.Mui-focused {
+                color: $font-color-secondary;
+            }
+    
+            & .MuiInput-underline:after {
+                border-bottom-color: $font-color-secondary;
+            }
+    
+            & .MuiOutlinedInput-root {
+                & fieldset {
+                    border-color: $font-color-secondary;
+                }
+    
+                &:hover fieldset {
+                    border-color: $font-color-secondary;
+                }
+    
+                &.Mui-focused fieldset {
+                    border-color: $font-color-secondary;
+                }
+            }
+    
+            .signup-b{
+                background-color: $primary-color;
+                color: $font-color;
+                font-family: $font-family;
+                font-weight: bold;
+                border: 2px solid $primary-color;
+                width: 180px;
+            }
+        }
+
+        .login-form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .input-text {
+                font-size: 1.1rem;
+                color: $font-color;
+                background-color: rgb(19, 19, 19);
+                width: 400px;
+                margin-bottom: 20px;
+                font-family: $font-family;
+            }
+    
+            label{
+                color: #fff;
+            }
+    
+            & label.Mui-focused {
+                color: $font-color-secondary;
+            }
+    
+            & .MuiInput-underline:after {
+                border-bottom-color: $font-color-secondary;
+            }
+    
+            & .MuiOutlinedInput-root {
+                & fieldset {
+                    border-color: $font-color-secondary;
+                }
+    
+                &:hover fieldset {
+                    border-color: $font-color-secondary;
+                }
+    
+                &.Mui-focused fieldset {
+                    border-color: $font-color-secondary;
+                }
+            }
+    
+            .login-b{
+                background-color: $primary-color;
+                color: $font-color;
+                font-family: $font-family;
+                font-weight: bold;
+                border: 2px solid $primary-color;
+                width: 180px;
+            }
+        }   
+    }
+}

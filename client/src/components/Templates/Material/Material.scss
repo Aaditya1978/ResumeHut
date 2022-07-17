@@ -1,0 +1,195 @@
+$background-color: #171717;
+$primary-color: #ee2737;
+$font-color: #fff;
+$font-color-secondary: #ee2737;
+$font-family: 'Open Sans', sans-serif;
+
+body {
+    background-color: $background-color;
+    color: $font-color;
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+}
+
+.minimal {
+
+    .navbar {
+        background-color: $background-color;
+
+        .logo-text {
+            color: $font-color-secondary;
+            font-weight: bold;
+            margin-left: 1rem;
+            font-family: $font-family;
+        }
+
+        .nav-b {
+            background-color: $background-color;
+            color: $font-color;
+            font-family: $font-family;
+            font-weight: bold;
+            border: 2px solid $primary-color;
+            width: 180px;
+            margin-left: 1rem;
+            border-radius: 10px;
+
+            .nav-i {
+                font-size: 20px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+        }
+
+        .nav-b:hover {
+            background-color: $primary-color;
+            color: $font-color;
+        }
+    }
+
+    .home-btn{
+        padding-left: 20px;
+
+        .btn{
+            background-color: $primary-color;
+            border: 2px solid $primary-color;
+            width: 180px;
+            margin-left: 1rem;
+            border-radius: 10px;
+
+            a {
+                color: $font-color;
+                font-family: $font-family;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .form-s{
+
+        h5{
+            color: $font-color-secondary;
+            font-family: $font-family;
+            font-weight: bold;
+        }
+
+        .p-icon{
+            color: $font-color-secondary;
+            font-family: $font-family;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-icon{
+            color: $font-color-secondary;
+            font-family: $font-family;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .p-icon:hover{
+            transform: rotate(360deg);
+        }
+
+        .delete-icon:hover{
+            transform: rotateY(360deg);
+        }
+
+        label{
+            color: #fff;
+        }
+
+        input{
+            color: #fff;
+        }
+
+        textarea{
+            color: #fff;
+            background-color: #171717;
+            border-color: #ee2737;
+            font-family: $font-family;
+        }
+
+        textarea:active{
+            outline: none;
+            border-color: #ee2737;
+        }
+
+        textarea:focus{
+            outline: none;
+            border-color: #ee2737;
+        }
+
+        .generate-b{
+            background-color: $primary-color;
+            border: 2px solid $primary-color;
+            width: 280px;
+            height: 50px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-family: $font-family;
+            font-weight: bold;
+            color: $font-color;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover{
+                transform: scale(1.04);
+            }
+        }
+
+        .generate-b2{
+            background-color: #e9606c;
+            border: 2px solid $primary-color;
+            width: 260px;
+            height: 50px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-family: $font-family;
+            font-weight: bold;
+            color: $font-color;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover{
+                transform: scale(1.04);
+            }
+        }
+
+        & label.Mui-focused {
+            color: $font-color-secondary;
+        }
+
+        & .MuiInput-underline:after {
+            border-bottom-color: $font-color-secondary;
+        }
+
+        & .css-1ptx2yq-MuiInputBase-root-MuiInput-root:before{
+            border-bottom-color: $font-color-secondary;
+        }
+
+        & .css-1ptx2yq-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before{
+            border-bottom-color: $font-color-secondary;
+        }
+
+        & .MuiOutlinedInput-root {
+            color: #fff;
+            & fieldset {
+                border-color: $font-color-secondary;
+            }
+
+            &:hover fieldset {
+                border-color: $font-color-secondary;
+            }
+
+            &.Mui-focused fieldset {
+                border-color: $font-color-secondary;
+            }
+        }
+    }
+}
