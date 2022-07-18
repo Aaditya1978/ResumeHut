@@ -14,6 +14,7 @@ async function printPDF(data) {
   } else if (data.type === "modern") {
     htmlData = await modern(data);
   }
+  console.log(htmlData);
   const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
   const page = await browser.newPage();
   await page.setContent(htmlData);
@@ -37,6 +38,7 @@ router.post("/resume", async (req, res) => {
   const { data } = req.body;
   printPDF(data)
     .then((pdf) => {
+      console.log(pdf);
       res.set({
         "Content-Type": "application/pdf",
         "Content-Length": pdf.length,
