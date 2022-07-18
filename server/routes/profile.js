@@ -8,13 +8,13 @@ const puppeteer = require("puppeteer");
 
 async function printPDF(data) {
   if (data.type === "minimal") {
-    htmlData = minimal(data);
+    htmlData = await minimal(data);
   } else if (data.type === "material") {
-    htmlData = material(data);
+    htmlData = await material(data);
   } else if (data.type === "modern") {
-    htmlData = modern(data);
+    htmlData = await modern(data);
   }
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
   const page = await browser.newPage();
   await page.setContent(htmlData);
   const pdf = await page.pdf({ format: "A4", printBackground: true });
@@ -44,6 +44,7 @@ router.post("/resume", async (req, res) => {
       res.send(pdf);
     })
     .catch((err) => {
+      console.log(err);
       res.status(500).json({ error: "Some Error occurerd !" });
     });
 });
