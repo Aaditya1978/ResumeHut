@@ -29,7 +29,7 @@ export default function Minimal({ user }) {
 
   const [data, setData] = useState({
     type: "minimal",
-    userName: user.login,
+    userName: user.userName,
     fname: "",
     lname: "",
     links: [""],

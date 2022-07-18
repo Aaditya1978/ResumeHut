@@ -70,7 +70,7 @@ export default function Modern({ user }) {
 
   const [data, setData] = useState({
     type: "modern",
-    userName: user.login,
+    userName: user.userName,
     name: "",
     address: "",
     mail: "",

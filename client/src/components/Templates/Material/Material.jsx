@@ -29,7 +29,7 @@ export default function Material({ user }) {
 
   const [data, setData] = useState({
     type: "material",
-    userName: user.login,
+    userName: user.userName,
     fname: "",
     lname: "",
     links: [""],
