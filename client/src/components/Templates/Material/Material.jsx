@@ -29,7 +29,7 @@ export default function Material({ user }) {
 
   const [data, setData] = useState({
     type: "material",
-    user: user.email,
+    userName: user.login,
     fname: "",
     lname: "",
     links: [""],
@@ -90,7 +90,7 @@ export default function Material({ user }) {
   }, [params.id]);
 
   const handleLogout = () => {
-    window.open(`${process.env.REACT_APP_BASE_URL}/gauth/logout`, "_self");
+    window.open(`${process.env.REACT_APP_BASE_URL}/gitauth/logout`, "_self");
   };
 
   const handleNavigate = () => {

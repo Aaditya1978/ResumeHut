@@ -8,6 +8,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/gauth/google/callback",
+      proxy: true,
       scope: ["profile", "email"],
     },
     async function (accessToken, refreshToken, profile, cb) {

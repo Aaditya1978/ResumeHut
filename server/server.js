@@ -4,30 +4,31 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-const gpassportSetup = require("./utils/gpassport");
+// const gpassportSetup = require("./utils/gpassport");
 const gitpassportSetup = require("./utils/gitpassport");
-const gauthRoutes = require("./routes/gauth");
+// const gauthRoutes = require("./routes/gauth");
 const gitauthRoutes = require("./routes/gitauth");
 const resumeRoutes = require("./routes/resume");
 const profileRoutes = require("./routes/profile");
+const session = require('express-session')
 
 const app = express();
 app.use(express.json());
-app.use(
-  cookieSession({
-    name: "session",
-    keys: [process.env.COOKIE_KEY],
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-  })
-);
+// app.use(
+//     cookieSession({
+//         name: "session",
+//         keys: [process.env.COOKIE_KEY]
+//     })
+// );
+app.use(session({
+  secret: process.env.COOKIE_KEY,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(
-  cors({
+app.use(cors({
     origin: "https://resumehut.netlify.app",
     credentials: true,
-  })
-);
+}));
 
 const PORT = process.env.PORT || 5000;
 const mongo_user = process.env.MONGO_USER;
@@ -39,11 +40,11 @@ mongoose.connect(dbUrl, {
   useNewUrlParser: true,
 });
 
-app.use("/gauth", gauthRoutes);
+// app.use("/gauth", gauthRoutes);
 app.use("/gitauth", gitauthRoutes);
 app.use("/generate", resumeRoutes);
 app.use("/profile", profileRoutes);
 
 app.listen(PORT, () => {
-  console.log("Server started on port " + PORT);
+  console.log("server started on port " + PORT);
 });

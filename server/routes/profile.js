@@ -24,8 +24,8 @@ async function printPDF(data) {
 }
 
 router.post("/resume_data", async (req, res) => {
-  const { email } = req.body;
-  const resume_data = await User.findOne({ email: email }).populate("template");
+  const { userName } = req.body;
+  const resume_data = await User.findOne({ userName: userName }).populate("template");
   if (resume_data) {
     res.status(200).json(resume_data);
   } else {
@@ -49,12 +49,12 @@ router.post("/resume", async (req, res) => {
 });
 
 router.post("/delete", async (req, res) => {
-  const { id, email } = req.body;
+  const { id, userName } = req.body;
   const template = await Template.findById(id);
   if (template) {
     await Template.deleteOne({ _id: id });
-    await User.updateOne({ email: email }, { $pull: { template: id } });
-    const resume_data = await User.findOne({ email: email }).populate("template");
+    await User.updateOne({ userName: userName }, { $pull: { template: id } });
+    const resume_data = await User.findOne({ userName: userName }).populate("template");
     if (resume_data) {
       res.status(200).json(resume_data);
     } else {

@@ -29,7 +29,7 @@ router.post("/resume", async (req, res) => {
   const { data } = req.body;
   printPDF(data)
     .then((pdf) => {
-      User.findOne({ email: data.user }).then(async(user) => {
+      User.findOne({ userName: data.userName }).then(async(user) => {
         const template = new Template({
           id: (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2),
           type: data.type,

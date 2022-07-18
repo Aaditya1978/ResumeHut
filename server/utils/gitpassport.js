@@ -1,14 +1,29 @@
-const GithubStrategy = require('passport-github').Strategy;
+const GithubStrategy = require('passport-github2').Strategy;
 const passport = require('passport');
+const User = require("../models/user.model");
 
 passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: "/gitauth/github/callback",
-    scope: ["profile", "email"],
+    proxy: true
     },
-    function(accessToken, refreshToken, profile, cb) {
-        cb(null, profile);
+    async function(accessToken, refreshToken, profile, cb) {
+        const id = profile.id;
+        const name = profile.displayName;
+        const userName = profile.username;
+        const image = profile._json.avatar_url;
+        const user = await User.findOne({userName: userName});
+        if(!user) {
+            const newUser = new User({
+                id: id,
+                name: name,
+                userName: userName,
+                image: image
+            });
+            await newUser.save();
+        }
+        return cb(null, profile);
     }
 ));
 

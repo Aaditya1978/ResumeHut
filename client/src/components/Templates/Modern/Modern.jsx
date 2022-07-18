@@ -70,7 +70,7 @@ export default function Modern({ user }) {
 
   const [data, setData] = useState({
     type: "modern",
-    user: user.email,
+    userName: user.login,
     name: "",
     address: "",
     mail: "",
@@ -130,7 +130,7 @@ export default function Modern({ user }) {
   }, [params.id]);
 
   const handleLogout = () => {
-    window.open(`${process.env.REACT_APP_BASE_URL}/gauth/logout`, "_self");
+    window.open(`${process.env.REACT_APP_BASE_URL}/gitauth/logout`, "_self");
   };
 
   const handleNavigate = () => {

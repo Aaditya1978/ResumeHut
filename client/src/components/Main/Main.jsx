@@ -33,7 +33,7 @@ export default function Main() {
 
   const handleGithubSignup = () => {
     window.open(
-      `${process.env.REACT_APP_BASE_URL}/gitauth/github/callback`,
+      `${process.env.REACT_APP_BASE_URL}/gitauth/github`,
       "_self"
     );
   }
@@ -120,21 +120,21 @@ export default function Main() {
                     }}
                   >
                     <Typography className="form-text">Sign Up with</Typography>
-                    <Grid item xs={12} className="form-c">
+                    {/* <Grid item xs={12} className="form-c">
                       <Stack direction="row">
                         <Button
                           className="google-b"
                           variant="outlined"
                           startIcon={<BsGoogle />}
-                          onClick={handleGoogleSignup}
+                          onClick={handleGithubSignup}
                         >
                           Google
                         </Button>
                       </Stack>
-                    </Grid>
+                    </Grid> */}
                     {/* <h5 className="line">
                       <span>OR Continue with</span>
-                    </h5>
+                    </h5> */}
                     <Grid item xs={12} className="form-c">
                       <Stack direction="row">
                         <Button
@@ -146,7 +146,7 @@ export default function Main() {
                           Github
                         </Button>
                       </Stack>
-                    </Grid> */}
+                    </Grid>
                   </Grid>
                 </Grid>
               )}
@@ -164,21 +164,21 @@ export default function Main() {
                     }}
                   >
                     <Typography className="form-text">Log In with</Typography>
-                    <Grid item xs={12} className="form-c">
+                    {/* <Grid item xs={12} className="form-c">
                       <Stack direction="row">
                         <Button
                           className="google-b"
                           variant="outlined"
                           startIcon={<BsGoogle />}
-                          onClick={handleGoogleSignup}
+                          onClick={handleGithubSignup}
                         >
                           Google
                         </Button>
                       </Stack>
-                    </Grid>
+                    </Grid> */}
                     {/* <h5 className="line">
                       <span>OR continue with</span>
-                    </h5>
+                    </h5> */}
                     <Grid item xs={12} className="form-c">
                       <Stack direction="row">
                         <Button
@@ -190,7 +190,7 @@ export default function Main() {
                           Github
                         </Button>
                       </Stack>
-                    </Grid> */}
+                    </Grid>
                   </Grid>
                 </Grid>
               )}

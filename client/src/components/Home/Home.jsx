@@ -23,7 +23,7 @@ export default function Home({ user }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    window.open(`${process.env.REACT_APP_BASE_URL}/gauth/logout`, "_self");
+    window.open(`${process.env.REACT_APP_BASE_URL}/gitauth/logout`, "_self");
   };
 
   const handleNavigate = () => {

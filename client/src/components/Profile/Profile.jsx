@@ -42,7 +42,7 @@ export default function Profile({ user }) {
     try {
       const url = `${process.env.REACT_APP_BASE_URL}/profile/resume_data`;
       axios
-        .post(url, { email: user.email })
+        .post(url, { userName: user.login })
         .then((res) => {
           setResumeData(res.data.template);
           const len = res.data.template.length;
@@ -106,7 +106,7 @@ export default function Profile({ user }) {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/profile/delete/`, {
         id: id,
-        email: email,
+        userName: user.login,
       })
       .then((res) => {
         setResumeData(res.data.template);
@@ -126,7 +126,7 @@ export default function Profile({ user }) {
 
 
   const handleLogout = () => {
-    window.open(`${process.env.REACT_APP_BASE_URL}/gauth/logout`, "_self");
+    window.open(`${process.env.REACT_APP_BASE_URL}/gitauth/logout`, "_self");
   };
 
   const handleNavigate = () => {
@@ -179,8 +179,8 @@ export default function Profile({ user }) {
         }}
       >
         <Avatar
-          alt={user.name}
-          src={user.picture}
+          alt={user.login}
+          src={user.avatar_url}
           sx={{ width: 86, height: 86 }}
         />
         <br />
@@ -243,7 +243,7 @@ export default function Profile({ user }) {
                       <SpeedDialAction
                         icon={<DeleteIcon />}
                         tooltipTitle={"Delete"}
-                        onClick={(e) => handleDelete(e, resume._id, user.email)}
+                        onClick={(e) => handleDelete(e, resume._id, user.login)}
                       />
                     </SpeedDial>
                     {!loading[ind] ? (
@@ -307,7 +307,7 @@ export default function Profile({ user }) {
                       <SpeedDialAction
                         icon={<DeleteIcon />}
                         tooltipTitle={"Delete"}
-                        onClick={(e) => handleDelete(e, resume._id, user.email)}
+                        onClick={(e) => handleDelete(e, resume._id, user.login)}
                       />
                     </SpeedDial>
                     {!loading[ind] ? (
@@ -366,7 +366,7 @@ export default function Profile({ user }) {
                       <SpeedDialAction
                         icon={<DeleteIcon />}
                         tooltipTitle={"Delete"}
-                        onClick={(e) => handleDelete(e, resume._id, user.email)}
+                        onClick={(e) => handleDelete(e, resume._id, user.login)}
                       />
                     </SpeedDial>
                     {!loading[ind] ? (
