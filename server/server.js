@@ -11,8 +11,15 @@ const gitauthRoutes = require("./routes/gitauth");
 const resumeRoutes = require("./routes/resume");
 const profileRoutes = require("./routes/profile");
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
+const cookieParser = require('cookie-parser')
+
+const mongo_user = process.env.MONGO_USER;
+const mongo_pass = process.env.MONGO_PASSWORD;
+const dbUrl = `mongodb+srv://${mongo_user}:${mongo_pass}@resumehut.ckjo8.mongodb.net/?retryWrites=true&w=majority`;
 
 const app = express();
+app.enable("trust proxy");
 app.use(express.json());
 // app.use(
 //     cookieSession({
@@ -20,8 +27,18 @@ app.use(express.json());
 //         keys: [process.env.COOKIE_KEY]
 //     })
 // );
+app.use(cookieParser());
 app.use(session({
   secret: process.env.COOKIE_KEY,
+  resave: false,
+  saveUninitialized: true,
+  proxy: true,
+  cookie: {
+    secure: true,
+    maxAge: 3600000,
+    sameSite:'none',
+    store: MongoStore.create({ mongoUrl: dbUrl })
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -31,13 +48,17 @@ app.use(cors({
 }));
 
 const PORT = process.env.PORT || 5000;
-const mongo_user = process.env.MONGO_USER;
-const mongo_pass = process.env.MONGO_PASSWORD;
-
-const dbUrl = `mongodb+srv://${mongo_user}:${mongo_pass}@resumehut.ckjo8.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
+});
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  next();
 });
 
 // app.use("/gauth", gauthRoutes);
@@ -48,3 +69,7 @@ app.use("/profile", profileRoutes);
 app.listen(PORT, () => {
   console.log("server started on port " + PORT);
 });
+
+
+// http://localhost:3000
+// http://localhost:5000/gitauth/github/callback

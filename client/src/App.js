@@ -16,7 +16,8 @@ function App() {
 		try {
 			const url = `${process.env.REACT_APP_BASE_URL}/gitauth/login/success`;
 			const { data } = await axios.get(url, { withCredentials: true });
-			setUser(data.user._json);
+      console.log(data.user);
+			setUser(data.user);
 		} catch (err) {
       console.log(err);
 		}

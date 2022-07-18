@@ -9,6 +9,7 @@ passport.use(new GithubStrategy({
     proxy: true
     },
     async function(accessToken, refreshToken, profile, cb) {
+        // console.log(profile);
         const id = profile.id;
         const name = profile.displayName;
         const userName = profile.username;
@@ -28,9 +29,13 @@ passport.use(new GithubStrategy({
 ));
 
 passport.serializeUser(function(user, done) {
-    done(null, user);
+    return done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {
-    done(null, user);
+    User.findOne({userName: user.username}, function(err, user) {
+        return done(err, user, function() {
+            console.log("deserializeUser" + err);
+        });
+    });
 });

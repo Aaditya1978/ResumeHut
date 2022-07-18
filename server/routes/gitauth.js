@@ -5,7 +5,7 @@ const passport = require("passport");
 router.get("/login/success", (req, res) => {
     // console.log(req);
     if(req.user){
-        // console.log(req.user);
+        console.log(req.user);
         res.status(200).json({message: "Login success", user: req.user});
     }
     else{
