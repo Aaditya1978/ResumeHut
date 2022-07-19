@@ -19,7 +19,7 @@ const mongo_pass = process.env.MONGO_PASSWORD;
 const dbUrl = `mongodb+srv://${mongo_user}:${mongo_pass}@resumehut.ckjo8.mongodb.net/?retryWrites=true&w=majority`;
 
 const app = express();
-app.enable("trust proxy");
+app.enable("trust proxy", 1);
 app.use(express.json());
 // app.use(
 //     cookieSession({
@@ -33,11 +33,11 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   proxy: true,
+  store: MongoStore.create({ mongoUrl: dbUrl }),
   cookie: {
     secure: true,
     maxAge: 3600000,
     sameSite:'none',
-    store: MongoStore.create({ mongoUrl: dbUrl })
   }
 }));
 app.use(passport.initialize());
