@@ -80,10 +80,6 @@ export default function Profile({ user }) {
       )
       .then( async (res) => {
         const blob = await new Blob([res.data], { type: "application/pdf" });
-        console.log(blob);
-        if(blob === undefined) {
-          console.log("blob is undefined");
-        }
         const link = document.createElement("a");
         link.href = window.URL.createObjectURL(blob);
         link.download = `${user.name}.pdf`;

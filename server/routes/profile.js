@@ -7,6 +7,7 @@ const modern = require("../templates/modern/modern");
 const puppeteer = require("puppeteer");
 
 async function printPDF(data) {
+  let htmlData;
   if (data.type === "minimal") {
     htmlData = await minimal(data);
   } else if (data.type === "material") {
@@ -14,9 +15,9 @@ async function printPDF(data) {
   } else if (data.type === "modern") {
     htmlData = await modern(data);
   }
-  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
+  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox", '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
-  await page.setContent(htmlData);
+  await page.setContent(htmlData, { waitUntil: ['domcontentloaded', 'load', "networkidle0"] });
   const pdf = await page.pdf({ format: "A4", printBackground: true });
 
   await browser.close();
@@ -37,8 +38,15 @@ router.post("/resume", async (req, res) => {
   const { data } = req.body;
   printPDF(data)
     .then((pdf) => {
-      res.contentType("application/pdf");
-      res.send(pdf);
+      res.set({
+        "Content-Type": "application/pdf",
+        "Content-Length": pdf.length,
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': 0,
+
+      });
+      res.end(pdf);
     })
     .catch((err) => {
       console.log(err);

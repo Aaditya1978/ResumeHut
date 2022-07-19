@@ -121,8 +121,8 @@ export default function Minimal({ user }) {
           Accept: "application/pdf",
         },
       })
-      .then((res) => {
-        const blob = new Blob([res.data], { type: "application/pdf" });
+      .then(async (res) => {
+        const blob = await new Blob([res.data], { type: "application/pdf" });
         const link = document.createElement("a");
         link.href = window.URL.createObjectURL(blob);
         link.download = `${user.name}.pdf`;

@@ -7,6 +7,7 @@ const Template = require("../models/template.model");
 const User = require("../models/user.model");
 
 async function printPDF(data) {
+  let htmlData;
   if (data.type === "minimal") {
     htmlData = await minimal(data);
   }
@@ -16,9 +17,9 @@ async function printPDF(data) {
   else if (data.type === "modern") {
     htmlData = await modern(data);
   }
-  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
+  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox", '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
-  await page.setContent(htmlData);
+  await page.setContent(htmlData, { waitUntil: ['domcontentloaded', 'load', "networkidle0"] });
   const pdf = await page.pdf({ format: "A4", printBackground: true });
 
   await browser.close();
@@ -41,9 +42,12 @@ router.post("/resume", async (req, res) => {
         await user.save();
         res.set({
           "Content-Type": "application/pdf",
-          "Content-Length": pdf.length,
+        "Content-Length": pdf.length,
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': 0,
         });
-        res.send(pdf);
+        res.end(pdf);
       });
     })
     .catch((err) => {
