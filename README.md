@@ -17,7 +17,7 @@ To run this project, you will need to add the following environment variables to
 First in your server .env file
 
 `MONGO_USER` `MONGO_PASSWORD` `CLIENT_URL` `GITHUB_CLIENT_SECRET` `GITHUB_CLIENT_ID` 
-`API_KEY` `API_SECRET` `COOKIE_KEY` `GOOGLE_CLIENT_SECRET`
+ `COOKIE_KEY` `GOOGLE_CLIENT_SECRET`
 `GOOGLE_CLIENT_ID`
 
 Then in your client .env.local file
