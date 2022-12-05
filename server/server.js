@@ -61,6 +61,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+// main route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the Resumehut API." });
+});
+
+
 // app.use("/gauth", gauthRoutes);
 app.use("/gitauth", gitauthRoutes);
 app.use("/generate", resumeRoutes);
