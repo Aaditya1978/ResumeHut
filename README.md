@@ -39,7 +39,7 @@ https://resumehut.netlify.app
 
 Client - Netlify
 
-Server - Heroku
+Server - Render
 
 DataBase - MongoDB
 
